@@ -6,8 +6,7 @@ import {
 
 
 import { styles } from "./styles";
-import { StartButtom } from "@/Components/atoms/start-button"; 
-import { PauseButton } from "@/Components/atoms/pause-button";
+import { TimerControls } from "@/Components/molecules/timer-controls";
 
 export default function IndexPage() {
   
@@ -23,9 +22,10 @@ export default function IndexPage() {
     <View style={styles.container}>
       <Text style={styles.tittle}>Timer App</Text>
       
-      {/* Adicionando o botão aqui */}
-      <StartButtom onPress={handleStart} />
-      <PauseButton onPress={handlePause} />
+      <TimerControls 
+        onStart={handleStart} 
+        onPause={handlePause} 
+      />
       
     </View>
   );
