@@ -1,13 +1,23 @@
-import { Text, View, Alert } from "react-native";
+import { 
+  Text, 
+  View, 
+  Alert 
+} from "react-native";
+
+
 import { styles } from "./styles";
-import { StartButtom } from "@/Components/atoms/start-button"; // Verifique se o caminho está correto
+import { StartButtom } from "@/Components/atoms/start-button"; 
+import { PauseButton } from "@/Components/atoms/pause-button";
 
 export default function IndexPage() {
   
   const handleStart = () => {
     Alert.alert("Timer iniciado!");
-    // Aqui entrará a sua lógica de contagem regressiva
   };
+
+  const handlePause = () => {
+    Alert.alert("Timer pausado!");
+  }
 
   return (
     <View style={styles.container}>
@@ -15,6 +25,7 @@ export default function IndexPage() {
       
       {/* Adicionando o botão aqui */}
       <StartButtom onPress={handleStart} />
+      <PauseButton onPress={handlePause} />
       
     </View>
   );
