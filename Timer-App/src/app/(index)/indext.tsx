@@ -6,9 +6,36 @@ import { TimerDisplay } from "@/Components/molecules/timer-display";
 import { styles } from "./styles";
 
 export default function IndexPage() {
-  const initial_time = 1500;
-  const [seconds, setSeconds] = useState(initial_time);
+  const [seconds, setSeconds] = useState(0);
+  const [baseTime, setBaseTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
+
+  const handleTimeChange = (text: string) => {
+    // Substitui todos os carcteres não numéricos por vazio
+    const cleaned = text.replace(/[^0-9]/g, "");
+
+    // Pega os caracteres vazios e transforma em 0
+    if (cleaned === "") {
+      setSeconds(0);
+      setBaseTime(0);
+      return;
+    }
+
+    // Posiciona os números conforme for digitado
+    const val = parseInt(cleaned, 10);
+    const m = Math.floor(val / 100);
+    const s = val % 100;
+
+    const totalSeconds = m * 60 + (s > 59 ? 59 : s);
+
+    setSeconds(totalSeconds);
+    setBaseTime(totalSeconds);
+  };
+
+  const handleRestart = () => {
+    setIsActive(false);
+    setSeconds(baseTime);
+  };
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -26,16 +53,15 @@ export default function IndexPage() {
 
   const handlePause = () => setIsActive(false);
 
-  const handleRestart = () => {
-    setIsActive(false);
-    setSeconds(initial_time);
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>Timer App</Text>
 
-      <TimerDisplay seconds={seconds} />
+      <TimerDisplay
+        seconds={seconds}
+        onChangeTime={handleTimeChange}
+        editable={!isActive}
+      />
 
       <TimerControls
         onStart={handleStart}
