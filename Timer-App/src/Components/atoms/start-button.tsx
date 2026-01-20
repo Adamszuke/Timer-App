@@ -1,8 +1,4 @@
-import { 
-  Image, 
-  TouchableOpacity, 
-  StyleSheet 
-} from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { colors } from "@/styles/Colors";
 
@@ -23,9 +19,9 @@ export function StartButtom({ onPress }: Props) {
 
 const styles = StyleSheet.create({
   image: {
-    width: 100,
-    height: 100,
-    marginTop: 20, 
+    width: 70,
+    height: 70,
+    marginTop: 35,
     tintColor: colors.white[100], // Aplica a cor branca à imagem
-  }
+  },
 });

@@ -36,5 +36,3 @@ const styles = StyleSheet.create({
     gap: 30,
   },
 });
-
-// Corrigir desnível na transição de ícones
