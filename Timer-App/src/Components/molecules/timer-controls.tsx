@@ -8,14 +8,23 @@ interface Props {
   onStart: () => void;
   onPause: () => void;
   onRestart: () => void;
+  isActive: boolean;
 }
 
-export function TimerControls({ onStart, onPause, onRestart }: Props) {
+export function TimerControls({
+  onStart,
+  onPause,
+  onRestart,
+  isActive,
+}: Props) {
   return (
     <View style={styles.container}>
-      <StartButtom onPress={onStart} />
-      <PauseButton onPress={onPause} />
       <RestartButton onPress={onRestart} />
+      {isActive ? (
+        <PauseButton onPress={onPause} />
+      ) : (
+        <StartButtom onPress={onStart} />
+      )}
     </View>
   );
 }
@@ -24,5 +33,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     width: "60%",
+    gap: 30,
   },
 });
+
+// Corrigir desnível na transição de ícones
