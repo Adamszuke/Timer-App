@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     marginTop: 35,
-    marginLeft: 10,
     tintColor: colors.white[100], // Aplica a cor branca à imagem
   },
 });

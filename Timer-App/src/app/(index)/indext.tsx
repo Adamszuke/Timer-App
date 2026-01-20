@@ -6,7 +6,8 @@ import { TimerDisplay } from "@/Components/molecules/timer-display";
 import { styles } from "./styles";
 
 export default function IndexPage() {
-  const [seconds, setSeconds] = useState(1500);
+  const initial_time = 1500;
+  const [seconds, setSeconds] = useState(initial_time);
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -25,13 +26,23 @@ export default function IndexPage() {
 
   const handlePause = () => setIsActive(false);
 
+  const handleRestart = () => {
+    setIsActive(false);
+    setSeconds(initial_time);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.tittle}>Timer App</Text>
 
       <TimerDisplay seconds={seconds} />
 
-      <TimerControls onStart={handleStart} onPause={handlePause} />
+      <TimerControls
+        onStart={handleStart}
+        onPause={handlePause}
+        onRestart={handleRestart}
+        isActive={isActive}
+      />
     </View>
   );
 }
