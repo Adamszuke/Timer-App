@@ -1,6 +1,7 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { colors } from "@/styles/Colors";
+import { StartIcon } from "./icons";
 
 interface Props {
   onPress: () => void;
@@ -9,10 +10,7 @@ interface Props {
 export function StartButtom({ onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
-      <Image
-        source={require("@/assets/start-button.png")}
-        style={styles.image}
-      />
+      <StartIcon/>
     </TouchableOpacity>
   );
 }

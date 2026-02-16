@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { HourGlassIcon } from "@/Components/atoms/icons";
 
 import { colors } from "@/styles/Colors";
 
@@ -9,7 +10,7 @@ interface Props {
 export function TimerCard({ onPress }: Props) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
-      <Image source={require("@/assets/timer-icon.png")} style={styles.image} />
+      <HourGlassIcon/>
       <Text style={styles.title}>Temporizador</Text>
     </TouchableOpacity>
   );

@@ -1,4 +1,5 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
+import { RestartIcon } from "./icons";
 
 import { colors } from "@/styles/Colors";
 
@@ -9,10 +10,7 @@ interface Props {
 export function RestartButton({ onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
-      <Image
-        source={require("@/assets/restart-button.png")}
-        style={styles.image}
-      />
+      <RestartIcon/>
     </TouchableOpacity>
   );
 }
