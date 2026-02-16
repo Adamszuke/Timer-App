@@ -33,3 +33,10 @@ export const RestartIcon = () => (
         color={colors.white[100]} 
     />
 );
+export const CloseIcon = () => (
+    <Ionicons 
+        name="close" 
+        size={90} 
+        color={colors.white[100]} 
+    />
+);

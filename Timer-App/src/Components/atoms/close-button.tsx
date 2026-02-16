@@ -1,16 +1,16 @@
 import { TouchableOpacity } from "react-native";
 
-import { StartIcon } from "./icons";
+import { CloseIcon } from "./icons";
 
 interface Props {
-  onPress: () => void;
+    onPress: () => void;
 }
 
-export function StartButtom({ onPress }: Props) {
+
+export function CloseButton({ onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
-      <StartIcon/>
+      <CloseIcon/>
     </TouchableOpacity>
   );
 }
-

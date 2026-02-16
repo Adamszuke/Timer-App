@@ -36,6 +36,13 @@ export default function IndexPage() {
     setIsActive(false);
     setSeconds(baseTime);
   };
+  const handleClear = () => {
+    setIsActive(false); 
+    setSeconds(0);      
+    setBaseTime(0);     
+  };
+
+ 
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -67,6 +74,7 @@ export default function IndexPage() {
         onStart={handleStart}
         onPause={handlePause}
         onRestart={handleRestart}
+        onClear={handleClear}
         isActive={isActive}
       />
     </View>
