@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Vibration, Alert } from "react-native";
 
 import { TimerControls } from "@/Components/molecules/timer-controls";
 import { TimerDisplay } from "@/Components/molecules/timer-display";
@@ -51,6 +51,24 @@ export default function IndexPage() {
       interval = window.setInterval(() => {
         setSeconds((prev) => prev - 1);
       }, 1000);
+    }else if (isActive && seconds === 0) {
+      // O TEMPO ACABOU AQUI
+      setIsActive(false);
+      Vibration.vibrate([500, 1000, 500, 1000], true);
+      Alert.alert(
+        "Tempo Esgotado!",
+        "O cronômetro chegou ao fim.",
+        [
+          {
+            text: "Silenciar",
+            onPress: () => {
+              Vibration.cancel(); 
+              setSeconds(baseTime); 
+            },
+          },
+        ],
+        { cancelable: false } 
+      );
     }
 
     return () => clearInterval(interval);
